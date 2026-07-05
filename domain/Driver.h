@@ -24,6 +24,8 @@ public:
     std::string toString() const;
     void setScore();
     void setStatus(const std::string& status);
+    void setLatitude(int newLat);
+    void setLongitude(int newLong);
 };
 
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>399</width>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,6 +84,34 @@
      </property>
     </widget>
    </item>
+   <item>
+    <widget class="QPushButton" name="northButton">
+     <property name="text">
+      <string>North</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="southButton">
+     <property name="text">
+      <string>South</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="eastButton">
+     <property name="text">
+      <string>East</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="westButton">
+     <property name="text">
+      <string>West</string>
+     </property>
+    </widget>
+   </item>
   </layout>
   <zorder>reportsListWidget</zorder>
   <zorder>statusLabel</zorder>
@@ -96,6 +124,10 @@
   <zorder>longitudeLineEdit</zorder>
   <zorder>validateButton</zorder>
   <zorder>horizontalSlider</zorder>
+  <zorder>northButton</zorder>
+  <zorder>southButton</zorder>
+  <zorder>eastButton</zorder>
+  <zorder>westButton</zorder>
  </widget>
  <resources/>
  <connections/>

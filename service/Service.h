@@ -18,6 +18,7 @@ public:
     std::vector<Report> getReportsForRegion(const Driver& d,int radius) const;
     void addReport(const std::string& description,const Driver& driver,int latitude,int longitude,bool validationStatus);
     void validateReport(const std::string& report,const Driver& driver);
+    void moveDriver(const Driver& driver,int latitude,int longitude);
 };
 
 

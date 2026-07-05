@@ -28,6 +28,7 @@ public:
     void saveReports();
     void addReport(const std::string& description,const std::string& reporter,int latitude,int longitude,bool validationStatus);
     void validateReport(const std::string& report,const Driver& driver);
+    void moveDriver(const Driver& driver,int latitude,int longitude);
 };
 
 

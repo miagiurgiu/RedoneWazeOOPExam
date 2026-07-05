@@ -53,3 +53,8 @@ void Service::validateReport(const std::string &report, const Driver &driver) {
     repo.validateReport(report,driver);
     notify();
 }
+
+void Service::moveDriver(const Driver &driver, int latitude, int longitude) {
+    repo.moveDriver(driver,latitude,longitude);
+    notify();
+}

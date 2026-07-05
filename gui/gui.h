@@ -33,6 +33,10 @@ private:
     void addReport();
     void validateReport();
     void radiusChanged(int value);
+    void moveNorth();
+    void moveSouth();
+    void moveEast();
+    void moveWest();
 };
 
 

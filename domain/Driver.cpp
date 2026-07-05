@@ -38,3 +38,11 @@ void Driver::setScore() {
 void Driver::setStatus(const std::string &status) {
     this->status=status;
 }
+
+void Driver::setLatitude(int newLat) {
+    this->latitude=newLat;
+}
+
+void Driver::setLongitude(int newLong) {
+    this->longitude=newLong;
+}

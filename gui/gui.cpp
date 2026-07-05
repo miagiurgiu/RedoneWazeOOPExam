@@ -25,6 +25,15 @@ GUI::~GUI() {
 }
 
 void GUI::update() {
+    // refresh the copy because we update stuff
+    for (const auto& d:service.getDrivers()) {
+        if (d.getName()==driver.getName()) {
+            driver=d; // update the driver
+            break;
+        }
+    }
+    //(labels with coordinates/status should change)
+    ui->statusLabel->setText(QString::number(driver.getLatitude())+","+ QString::number(driver.getLongitude()) + "," + QString::fromStdString(driver.getStatus()));
     populateList();
 }
 
@@ -33,6 +42,10 @@ void GUI::connectSignalsAndSlots() {
     connect(ui->validateButton,&QPushButton::clicked,this,&GUI::validateReport);
     //connect(ui->reportsListWidget,&QListWidget::itemSelectionChanged,this,&GUI::validateReport);
     connect(ui->horizontalSlider,&QSlider::valueChanged,this,&GUI::radiusChanged);
+    connect(ui->northButton,&QPushButton::clicked,this,&GUI::moveNorth);
+    connect(ui->southButton,&QPushButton::clicked,this,&GUI::moveSouth);
+    connect(ui->eastButton,&QPushButton::clicked,this,&GUI::moveEast);
+    connect(ui->westButton,&QPushButton::clicked,this,&GUI::moveWest);
 }
 
 void GUI::populateList() {
@@ -71,4 +84,20 @@ void GUI::validateReport() {
 void GUI::radiusChanged(int value) {
     radius=value;
     populateList();
+}
+
+void GUI::moveNorth() {
+    service.moveDriver(driver,1,0);
+}
+
+void GUI::moveSouth() {
+    service.moveDriver(driver,-1,0);
+}
+
+void GUI::moveEast() {
+    service.moveDriver(driver,0,1);
+}
+
+void GUI::moveWest() {
+    service.moveDriver(driver,0,-1);
 }

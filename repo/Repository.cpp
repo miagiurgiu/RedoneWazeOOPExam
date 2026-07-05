@@ -128,3 +128,13 @@ void Repository::validateReport(const std::string &report, const Driver &driver)
     saveDrivers();
     saveReports();
 }
+
+void Repository::moveDriver(const Driver &driver, int latitude, int longitude) {
+    for (auto& d:drivers) {
+        if (d.getName()==driver.getName()) {
+            d.setLatitude(d.getLatitude()+latitude);
+            d.setLongitude(d.getLongitude()+longitude);
+        }
+    }
+    saveDrivers();
+}
