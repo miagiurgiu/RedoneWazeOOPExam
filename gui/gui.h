@@ -28,6 +28,7 @@ private:
     Service& service;
     Driver driver;
     void connectSignalsAndSlots();
+    void populateList();
 };
 
 

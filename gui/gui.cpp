@@ -13,6 +13,7 @@ GUI::GUI(Service& service, const Driver& driver,QWidget *parent) :
     ui->setupUi(this);
     service.registerObserver(this);
     this->setWindowTitle(QString::fromStdString(driver.getName()));
+    ui->statusLabel->setText(QString::number(driver.getLatitude())+","+ QString::number(driver.getLongitude()) + "," + QString::fromStdString(driver.getStatus()));
     connectSignalsAndSlots();
     GUI::update();
 }
@@ -23,9 +24,17 @@ GUI::~GUI() {
 }
 
 void GUI::update() {
-    return;
+    populateList();
 }
 
 void GUI::connectSignalsAndSlots() {
     return;
+}
+
+void GUI::populateList() {
+    ui->reportsListWidget->clear();
+    auto reports=service.getReportsForRegion(driver);
+    for (const auto& r:reports) {
+        ui->reportsListWidget->addItem(QString::fromStdString(r.toString()));
+    }
 }

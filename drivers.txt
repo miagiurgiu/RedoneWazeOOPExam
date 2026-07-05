@@ -1,5 +1,5 @@
 Mia,baby,3,3,9
-Max,knight,8,8,10
+Max,knight,80,80,10
 Mimi,grown-up,3,9,7
 Jojo,baby,5,5,8
 NONO,grown-up,11,12,9

@@ -15,6 +15,7 @@ public:
     Service(Repository& repo);
     std::vector<Driver> getDrivers() const;
     std::vector<Report> getReports() const;
+    std::vector<Report> getReportsForRegion(const Driver& d) const;
 };
 
 
