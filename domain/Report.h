@@ -22,6 +22,7 @@ public:
     int getLongitude() const;
     bool getValidationStatus() const;
     std::string toString() const;
+    void setStatus(bool newStatus);
 };
 
 

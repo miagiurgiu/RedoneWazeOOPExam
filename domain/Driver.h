@@ -22,6 +22,8 @@ public:
     int getLongitude() const;
     int getScore() const;
     std::string toString() const;
+    void setScore();
+    void setStatus(const std::string& status);
 };
 
 

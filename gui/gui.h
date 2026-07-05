@@ -27,9 +27,12 @@ private:
     Ui::GUI *ui;
     Service& service;
     Driver driver;
+    int radius=10;
     void connectSignalsAndSlots();
     void populateList();
     void addReport();
+    void validateReport();
+    void radiusChanged(int value);
 };
 
 

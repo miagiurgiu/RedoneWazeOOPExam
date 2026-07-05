@@ -60,7 +60,7 @@ void Repository::loadReports() {
         int latitude=std::stoi(latitudeString);
         int longitude=std::stoi(longitudeString);
         bool validation;
-        if (validationString=="true")
+        if (validationString=="true" || validationString=="1")
             validation=true;
         else
             validation=false;
@@ -89,5 +89,42 @@ void Repository::addReport(const std::string &description, const std::string &re
     bool validationStatus) {
     Report newReport{description,reporter,latitude,longitude,validationStatus};
     reports.push_back(newReport);
+    saveReports();
+}
+
+void Repository::validateReport(const std::string &report, const Driver &driver) {
+    for (auto& r : reports) {
+        if (r.toString() == report) {
+
+            if (r.getReporter() == driver.getName())
+                throw std::runtime_error("you cannot validate your own report");
+
+            auto& validators = validations[report];
+
+            if (std::find(validators.begin(), validators.end(), driver.getName()) != validators.end())
+                throw std::runtime_error("you already validated this report");
+
+            validators.push_back(driver.getName());
+
+            if (validators.size() >= 2) {
+                r.setStatus("true");
+
+                for (auto& d : drivers) {
+                    if (d.getName() == r.getReporter()) {
+                        d.setScore();
+
+                        if (d.getScore() == 10)
+                            d.setStatus("grown-up");
+                        if (d.getScore() == 15)
+                            d.setStatus("knight");
+                    }
+                }
+            }
+
+            break;
+        }
+    }
+
+    saveDrivers();
     saveReports();
 }

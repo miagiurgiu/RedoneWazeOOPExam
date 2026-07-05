@@ -15,7 +15,7 @@ std::vector<Report> Service::getReports() const {
     return repo.getReports();
 }
 
-std::vector<Report> Service::getReportsForRegion(const Driver &d) const {
+std::vector<Report> Service::getReportsForRegion(const Driver &d,int radius) const {
     int driverLatitude=d.getLatitude();
     int driverLongitude=d.getLongitude();
     std::vector<Report> result;
@@ -23,7 +23,7 @@ std::vector<Report> Service::getReportsForRegion(const Driver &d) const {
         int reportLatitude=r.getLatitude();
         int reportLongitude=r.getLongitude();
         double distance=sqrt((reportLatitude-driverLatitude)*(reportLatitude-driverLatitude) + (reportLongitude-driverLongitude)*(reportLongitude-driverLongitude));
-        if (distance<=10.0) {
+        if (distance<=radius) {
             result.push_back(r);
         }
     }
@@ -40,5 +40,16 @@ void Service::addReport(const std::string &description, const Driver& driver, in
     if (distance>=20.0)
         throw std::runtime_error("more than 20 units away");
     repo.addReport(description,driver.getName(),latitude,longitude,validationStatus);
+    notify();
+}
+
+void Service::validateReport(const std::string &report, const Driver &driver) {
+    for (const auto& r:repo.getReports()) {
+        if (r.toString()==report) {
+            if (r.getValidationStatus()==true)
+                throw std::runtime_error("already validated");
+        }
+    }
+    repo.validateReport(report,driver);
     notify();
 }

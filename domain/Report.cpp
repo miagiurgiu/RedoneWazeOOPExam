@@ -26,3 +26,7 @@ bool Report::getValidationStatus() const {
 std::string Report::toString() const {
     return description+","+reporter+","+std::to_string(latitude)+","+std::to_string(longitude)+","+std::to_string(validationStatus);
 }
+
+void Report::setStatus(bool newStatus) {
+    this->validationStatus=newStatus;
+}

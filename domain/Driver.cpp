@@ -30,3 +30,11 @@ int Driver::getScore() const {
 std::string Driver::toString() const {
     return name+","+status+","+std::to_string(latitude)+","+std::to_string(longitude)+","+std::to_string(score);
 }
+
+void Driver::setScore() {
+    this->score=this->score +1;
+}
+
+void Driver::setStatus(const std::string &status) {
+    this->status=status;
+}

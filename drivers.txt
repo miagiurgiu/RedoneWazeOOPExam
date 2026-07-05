@@ -1,6 +1,6 @@
 Mia,baby,3,3,9
-Max,knight,80,80,10
+Max,grown-up,80,80,10
 Mimi,grown-up,3,9,7
 Jojo,baby,5,5,8
-NONO,grown-up,11,12,9
-Bobby,knight,20,21,10
+NONO,grown-up,11,12,11
+Bobby,knight,20,21,11

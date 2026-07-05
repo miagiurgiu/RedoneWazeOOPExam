@@ -30,11 +30,14 @@ void GUI::update() {
 
 void GUI::connectSignalsAndSlots() {
     connect(ui->addButton,&QPushButton::clicked,this,&GUI::addReport);
+    connect(ui->validateButton,&QPushButton::clicked,this,&GUI::validateReport);
+    //connect(ui->reportsListWidget,&QListWidget::itemSelectionChanged,this,&GUI::validateReport);
+    connect(ui->horizontalSlider,&QSlider::valueChanged,this,&GUI::radiusChanged);
 }
 
 void GUI::populateList() {
     ui->reportsListWidget->clear();
-    auto reports=service.getReportsForRegion(driver);
+    auto reports=service.getReportsForRegion(driver,radius);
     for (const auto& r:reports) {
         ui->reportsListWidget->addItem(QString::fromStdString(r.toString()));
     }
@@ -50,4 +53,22 @@ void GUI::addReport() {
     catch (const std::exception& e) {
         QMessageBox::critical(this,"ERROR",e.what());
     }
+}
+
+void GUI::validateReport() {
+    auto selection=ui->reportsListWidget->selectedItems();
+    if (selection.empty())
+        return;
+    std::string report=selection[0]->text().toStdString();
+    try {
+        service.validateReport(report,driver);
+    }
+    catch (const std::exception &e) {
+        QMessageBox::critical(this,"ERROR",e.what());
+    }
+}
+
+void GUI::radiusChanged(int value) {
+    radius=value;
+    populateList();
 }

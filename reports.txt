@@ -1,14 +1,14 @@
-accident on broadway,Max,8,8,0
+accident on broadway,Max,8,8,1
 petrol leak on broadway,Max,8,9,0
 another leak on broadway,Max,7,8,0
 ice on the street,Mia,3,4,0
 frozen tires,Mia,3,3,0
 another incident,Mimi,3,9,0
 jojojjhh accident,Jojo,5,5,0
-slippery thunderstorm,NONO,12,12,0
+slippery thunderstorm,NONO,12,12,1
 another indicent that is bad,NONO,12,11,0
 ANOTHER indicent that is pretty bad,NONO,20,20,0
-ANOTHER indicent that is pretty baddd,NONO,20,20,0
-ANOTHER indicent that is pretty baddd,NONO,20,20,0
-ANOTHER indicent that is pretty baddd,NONO,20,20,0
+ANOTHER indicent that is pretty baddd,NONO,20,20,1
+ANOTHER indicent that is pretty baddd,NONO,20,20,1
+ANOTHER indicent that is pretty baddd,NONO,20,20,1
 new accident,NONO,15,15,0

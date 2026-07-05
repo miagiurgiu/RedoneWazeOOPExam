@@ -15,8 +15,9 @@ public:
     Service(Repository& repo);
     std::vector<Driver> getDrivers() const;
     std::vector<Report> getReports() const;
-    std::vector<Report> getReportsForRegion(const Driver& d) const;
+    std::vector<Report> getReportsForRegion(const Driver& d,int radius) const;
     void addReport(const std::string& description,const Driver& driver,int latitude,int longitude,bool validationStatus);
+    void validateReport(const std::string& report,const Driver& driver);
 };
 
 

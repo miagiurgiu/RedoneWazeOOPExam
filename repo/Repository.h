@@ -9,7 +9,7 @@
 
 #include "domain/Driver.h"
 #include "domain/Report.h"
-
+#include <map>
 
 class Repository {
 private:
@@ -17,6 +17,7 @@ private:
     std::string reportsFile;
     std::vector<Driver> drivers;
     std::vector<Report> reports;
+    std::map<std::string, std::vector<std::string>> validations;
 public:
     Repository(const std::string& driversFile,const std::string& reportsFile);
     std::vector<Driver> getDrivers() const;
@@ -26,6 +27,7 @@ public:
     void saveDrivers();
     void saveReports();
     void addReport(const std::string& description,const std::string& reporter,int latitude,int longitude,bool validationStatus);
+    void validateReport(const std::string& report,const Driver& driver);
 };
 
 
