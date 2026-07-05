@@ -4,6 +4,7 @@
 #include <QApplication>
 
 #include "gui/gui.h"
+#include "gui/map.h"
 #include "repo/Repository.h"
 #include "service/Service.h"
 
@@ -17,5 +18,7 @@ int main(int argc, char* argv[]) {
         gui->show();
         windows.push_back(gui);
     }
+    Map map{service};
+    map.show();
     return app.exec();
 }
