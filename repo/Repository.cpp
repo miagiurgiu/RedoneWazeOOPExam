@@ -84,3 +84,10 @@ void Repository::saveReports() {
     }
     fout.close();
 }
+
+void Repository::addReport(const std::string &description, const std::string &reporter, int latitude, int longitude,
+    bool validationStatus) {
+    Report newReport{description,reporter,latitude,longitude,validationStatus};
+    reports.push_back(newReport);
+    saveReports();
+}

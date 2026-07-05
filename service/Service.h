@@ -16,6 +16,7 @@ public:
     std::vector<Driver> getDrivers() const;
     std::vector<Report> getReports() const;
     std::vector<Report> getReportsForRegion(const Driver& d) const;
+    void addReport(const std::string& description,const Driver& driver,int latitude,int longitude,bool validationStatus);
 };
 
 

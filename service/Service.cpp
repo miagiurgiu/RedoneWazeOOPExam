@@ -29,3 +29,16 @@ std::vector<Report> Service::getReportsForRegion(const Driver &d) const {
     }
     return result;
 }
+
+void Service::addReport(const std::string &description, const Driver& driver, int latitude, int longitude,
+    bool validationStatus) {
+    if (description.empty())
+        throw std::runtime_error("description is empty");
+    int driverLatitude=driver.getLatitude();
+    int driverLongitude=driver.getLongitude();
+    double distance=sqrt((latitude-driverLatitude)*(latitude-driverLatitude) + (longitude-driverLongitude)*(longitude-driverLongitude));
+    if (distance>=20.0)
+        throw std::runtime_error("more than 20 units away");
+    repo.addReport(description,driver.getName(),latitude,longitude,validationStatus);
+    notify();
+}

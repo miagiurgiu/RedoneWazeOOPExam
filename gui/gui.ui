@@ -24,7 +24,53 @@
    <item>
     <widget class="QListWidget" name="reportsListWidget"/>
    </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Enter description:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="descriptionLineEdit"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Enter latitude:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="latitudeLineEdit"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Enter longitude:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="longitudeLineEdit"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="addButton">
+     <property name="text">
+      <string>Add Report</string>
+     </property>
+    </widget>
+   </item>
   </layout>
+  <zorder>reportsListWidget</zorder>
+  <zorder>statusLabel</zorder>
+  <zorder>addButton</zorder>
+  <zorder>label</zorder>
+  <zorder>descriptionLineEdit</zorder>
+  <zorder>label_2</zorder>
+  <zorder>latitudeLineEdit</zorder>
+  <zorder>label_3</zorder>
+  <zorder>longitudeLineEdit</zorder>
  </widget>
  <resources/>
  <connections/>

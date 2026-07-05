@@ -25,6 +25,7 @@ public:
     void loadReports();
     void saveDrivers();
     void saveReports();
+    void addReport(const std::string& description,const std::string& reporter,int latitude,int longitude,bool validationStatus);
 };
 
 

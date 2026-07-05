@@ -1,8 +1,13 @@
-accident on broadway,Max,8,8,false
-petrol leak on broadway,Max,8,9,false
-another leak on broadway,Max,7,8,true
-ice on the street,Mia,3,4,false
-frozen tires,Mia,3,3,true
-another incident,Mimi,3,9,true
-jojojjhh accident,Jojo,5,5,false
-slippery thunderstorm,NONO,12,12,true
+accident on broadway,Max,8,8,0
+petrol leak on broadway,Max,8,9,0
+another leak on broadway,Max,7,8,1
+ice on the street,Mia,3,4,0
+frozen tires,Mia,3,3,1
+another incident,Mimi,3,9,1
+jojojjhh accident,Jojo,5,5,0
+slippery thunderstorm,NONO,12,12,1
+another indicent that is bad,NONO,12,11,0
+ANOTHER indicent that is pretty bad,NONO,20,20,0
+ANOTHER indicent that is pretty baddd,NONO,20,20,0
+ANOTHER indicent that is pretty baddd,NONO,20,20,0
+ANOTHER indicent that is pretty baddd,NONO,20,20,0

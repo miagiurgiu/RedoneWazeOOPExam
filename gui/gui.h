@@ -29,6 +29,7 @@ private:
     Driver driver;
     void connectSignalsAndSlots();
     void populateList();
+    void addReport();
 };
 
 

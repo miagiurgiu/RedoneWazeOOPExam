@@ -3,3 +3,4 @@ Max,knight,80,80,10
 Mimi,grown-up,3,9,7
 Jojo,baby,5,5,8
 NONO,grown-up,11,12,9
+Bobby,knight,20,21,10

@@ -6,7 +6,8 @@
 
 #include "gui.h"
 #include "ui_GUI.h"
-
+#include <QMessageBox>
+#include <QPushButton>
 
 GUI::GUI(Service& service, const Driver& driver,QWidget *parent) :
     QWidget(parent), ui(new Ui::GUI),service{service},driver{driver} {
@@ -28,7 +29,7 @@ void GUI::update() {
 }
 
 void GUI::connectSignalsAndSlots() {
-    return;
+    connect(ui->addButton,&QPushButton::clicked,this,&GUI::addReport);
 }
 
 void GUI::populateList() {
@@ -36,5 +37,17 @@ void GUI::populateList() {
     auto reports=service.getReportsForRegion(driver);
     for (const auto& r:reports) {
         ui->reportsListWidget->addItem(QString::fromStdString(r.toString()));
+    }
+}
+
+void GUI::addReport() {
+    std::string description=ui->descriptionLineEdit->text().toStdString();
+    int latitude=ui->latitudeLineEdit->text().toInt();
+    int longitude=ui->longitudeLineEdit->text().toInt();
+    try {
+        service.addReport(description,driver,latitude,longitude,false);
+    }
+    catch (const std::exception& e) {
+        QMessageBox::critical(this,"ERROR",e.what());
     }
 }
